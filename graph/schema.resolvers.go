@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/nozoo3/go-template/cmd/hello"
 	"github.com/nozoo3/go-template/graph/model"
 )
 
@@ -25,9 +26,24 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	return todo, nil
 }
 
+// CreateGreeting is the resolver for the createGreeting field.
+func (r *mutationResolver) CreateGreeting(ctx context.Context, input model.NewGreeting) (*model.Greeting, error) {
+	message := hello.Hello()
+	greeting := &model.Greeting{
+		Message: message + input.Message,
+	}
+	r.greetings = append(r.greetings, greeting)
+	return greeting, nil
+}
+
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	return r.todos, nil
+}
+
+// Greetings is the resolver for the greetings field.
+func (r *queryResolver) Greetings(ctx context.Context) ([]*model.Greeting, error) {
+	return r.greetings, nil
 }
 
 // Mutation returns MutationResolver implementation.

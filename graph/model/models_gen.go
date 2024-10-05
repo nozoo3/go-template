@@ -2,7 +2,15 @@
 
 package model
 
+type Greeting struct {
+	Message string `json:"message"`
+}
+
 type Mutation struct {
+}
+
+type NewGreeting struct {
+	Message string `json:"message"`
 }
 
 type NewTodo struct {
