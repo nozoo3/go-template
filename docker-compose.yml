@@ -6,4 +6,5 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./cmd:/app
+      - .:/app
+    command: ["go", "run", "./server.go"]
