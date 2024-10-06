@@ -1,0 +1,16 @@
+version: '8.1'
+
+compose:
+  files:
+    - docker-compose.yml
+  project_name: go-template
+
+interaction:
+  go:
+    description: 'Run go command'
+    service: app
+    command: go
+
+provision:
+  - dip compose down --volumes
+  - dip up -d
