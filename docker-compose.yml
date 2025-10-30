@@ -7,4 +7,10 @@ services:
       - "8080:8080"
     volumes:
       - .:/app
+      - go-mod-cache:/go/pkg/mod
+    environment:
+      - CGO_ENABLED=0
     command: ["go", "run", "./server.go"]
+
+volumes:
+  go-mod-cache:

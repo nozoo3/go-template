@@ -12,7 +12,7 @@ A template project for building web servers using Go and GraphQL. Built with the
 
 ## 📋 Prerequisites
 
-- Go 1.23 or higher
+- Go 1.25 or higher
 - Docker & Docker Compose
 - [Dip](https://github.com/bibendi/dip) (recommended)
 
